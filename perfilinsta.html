@@ -1,0 +1,360 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Perfil estilo Instagram — Demo</title>
+  <style>
+    :root{
+      --bg:#fafafa;
+      --card:#ffffff;
+      --muted:#8e8e8e;
+      --accent:#0095f6;
+      --border:#dbdbdb;
+      --max-width:935px;
+      --gap:24px;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      background:var(--bg);
+      color:#262626;
+      display:flex;
+      justify-content:center;
+      padding:32px 16px;
+    }
+    .container{
+      width:100%;
+      max-width:var(--max-width);
+    }
+
+    /* Top profile area */
+    .profile{
+      display:flex;
+      gap:var(--gap);
+      align-items:center;
+      padding:28px 16px;
+      background:var(--card);
+      border:1px solid var(--border);
+      border-radius:8px;
+      margin-bottom:18px;
+    }
+    .avatar{
+      width:150px;
+      height:150px;
+      border-radius:50%;
+      flex:0 0 150px;
+      overflow:hidden;
+      border:2px solid var(--border);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg,#eee 0%,#f9f9f9 100%);
+    }
+    .avatar img{width:100%;height:100%;object-fit:cover}
+
+    .profile-info{
+      flex:1;
+      min-width:0;
+    }
+    .row{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      margin-bottom:12px;
+      flex-wrap:wrap;
+    }
+    .display-name{
+      font-size:20px;
+      font-weight:600;
+    }
+    .username{
+      color:var(--muted);
+      font-size:14px;
+    }
+    .actions{display:flex; gap:8px; align-items:center}
+    .btn{
+      padding:8px 12px;
+      border-radius:6px;
+      border:1px solid var(--border);
+      background:#fff;
+      cursor:pointer;
+      font-weight:600;
+    }
+    .btn.follow{
+      background:var(--accent);
+      color:#fff;
+      border-color:transparent;
+    }
+
+    .stats{
+      display:flex;
+      gap:22px;
+      color:#111;
+      font-weight:600;
+    }
+    .stat small{
+      display:block;
+      font-weight:400;
+      color:var(--muted);
+      font-size:13px;
+    }
+
+    .bio{
+      margin-top:8px;
+      font-size:14px;
+      line-height:1.35;
+    }
+    .bio a{color:var(--accent); text-decoration:none}
+
+    /* Tabs (Posts, Reels, Tagged) */
+    .tabs{
+      display:flex;
+      gap:24px;
+      margin-top:18px;
+      border-top:1px solid var(--border);
+      padding-top:12px;
+      color:var(--muted);
+      font-weight:600;
+      font-size:13px;
+    }
+
+    /* Grid of posts */
+    .posts{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:6px;
+      margin-top:14px;
+    }
+    .post{
+      background:#ddd;
+      position:relative;
+      overflow:hidden;
+      aspect-ratio:1/1;
+      cursor:pointer;
+    }
+    .post img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transition:transform .25s ease;
+    }
+    .post:hover img{ transform:scale(1.05) }
+
+    /* Modal (visualizar post) */
+    .modal{
+      position:fixed;
+      inset:0;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      background:rgba(0,0,0,0.6);
+      z-index:50;
+      padding:20px;
+    }
+    .modal.open{ display:flex }
+    .modal-card{
+      width:min(980px,96%);
+      background:#fff;
+      border-radius:8px;
+      overflow:hidden;
+      display:flex;
+      max-height:90vh;
+    }
+    .modal-left{flex:1; background:#000; display:flex; align-items:center; justify-content:center;}
+    .modal-left img{ max-width:100%; max-height:90vh; object-fit:contain; background:#000}
+    .modal-right{
+      width:360px;
+      border-left:1px solid var(--border);
+      display:flex;
+      flex-direction:column;
+      gap:12px;
+    }
+    .modal-header{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      padding:12px;
+    }
+    .modal-body{ padding:12px; overflow:auto; flex:1 }
+    .comment{ display:flex; gap:10px; align-items:flex-start; margin-bottom:10px }
+    .comment .c-avatar{ width:36px; height:36px; border-radius:50%; overflow:hidden; flex:0 0 36px}
+    .comment .c-text{ font-size:14px; }
+    .close-btn{
+      background:transparent;
+      border:none;
+      font-size:20px;
+      cursor:pointer;
+      color:var(--muted);
+    }
+
+    /* Responsive */
+    @media (max-width:800px){
+      .profile{flex-direction:column; align-items:flex-start}
+      .avatar{width:120px;height:120px;flex:0 0 120px}
+      .modal-card{flex-direction:column; width:100%}
+      .modal-right{width:100%; border-left:none; border-top:1px solid var(--border)}
+      .posts{grid-template-columns:repeat(3,1fr); gap:4px}
+    }
+    @media (max-width:420px){
+      .posts{grid-template-columns:repeat(2,1fr)}
+    }
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <section class="profile" aria-label="Perfil">
+      <div class="avatar" aria-hidden="true">
+        <!-- substitua src pelo avatar real -->
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLCcq8LEW63sc1N5WxUL43Tz_ylwEAGijLZg&s" alt="Avatar do usuário">
+      </div>
+
+      <div class="profile-info">
+        <div class="row">
+          <div>
+            <div class="display-name">Juninho ruindade</div>
+            <div class="username">@juninho_ruindade</div>
+          </div>
+
+          <div style="margin-left:auto" class="actions">
+            <button class="btn">Editar perfil</button>
+            <button id="followBtn" class="btn follow">Seguir</button>
+            <button class="btn">●●●</button>
+          </div>
+        </div>
+
+        <div class="row stats" aria-hidden="true">
+          <div class="stat"><span>128</span><small>Publicações</small></div>
+          <div class="stat"><span>10.4k</span><small>Seguidores</small></div>
+          <div class="stat"><span>345</span><small>Seguindo</small></div>
+        </div>
+
+        <div class="bio">
+          Juninho ruindade da silva<br>
+          jogar valorant, lol, gta san andres e muito mais... — <a href="https://www.twitch.tv/">twitch</a>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Abas do perfil">
+          <div role="tab">Publicações</div>
+          <div role="tab">Reels</div>
+          <div role="tab">Marcados</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- grade de posts -->
+    <section class="posts" aria-label="Publicações">
+      <!-- Substitua as imagens pelos seus posts -->
+      <div class="post" data-src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAhKDVgLeVycQUvVE0SJeGhzbhUV7_wSrgnw&s"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQAhKDVgLeVycQUvVE0SJeGhzbhUV7_wSrgnw&s" alt="Post 1"></div>
+      <div class="post" data-src="https://preview.redd.it/junin-ruindade-pura-v0-6a70ku4z38nd1.png?width=320&crop=smart&auto=webp&s=0eee0770420076dadc35ac5919c422be38031e73"><img src="https://preview.redd.it/junin-ruindade-pura-v0-6a70ku4z38nd1.png?width=320&crop=smart&auto=webp&s=0eee0770420076dadc35ac5919c422be38031e73" alt="Post 2"></div>
+      <div class="post" data-src="https://i.redd.it/estou-doando-juninha-ruindade-pura-v0-41qbkbghbfqd1.jpg?width=4000&format=pjpg&auto=webp&s=93e554f7368cfa926ab6fae001d3c531a254064a"><img src="https://i.redd.it/estou-doando-juninha-ruindade-pura-v0-41qbkbghbfqd1.jpg?width=4000&format=pjpg&auto=webp&s=93e554f7368cfa926ab6fae001d3c531a254064a" alt="Post 3"></div>
+      <div class="post" data-src="https://via.placeholder.com/800/FFA07A/000?text=4"><img src="https://via.placeholder.com/400/FFA07A/000?text=4" alt="Post 4"></div>
+      <div class="post" data-src="https://via.placeholder.com/800/D8BFD8/000?text=5"><img src="https://via.placeholder.com/400/D8BFD8/000?text=5" alt="Post 5"></div>
+      <div class="post" data-src="https://via.placeholder.com/800/F5DEB3/000?text=6"><img src="https://via.placeholder.com/400/F5DEB3/000?text=6" alt="Post 6"></div>
+      <div class="post" data-src="https://via.placeholder.com/800/AFEEEE/000?text=7"><img src="https://via.placeholder.com/400/AFEEEE/000?text=7" alt="Post 7"></div>
+      <div class="post" data-src="https://via.placeholder.com/800/FFE4E1/000?text=8"><img src="https://via.placeholder.com/400/FFE4E1/000?text=8" alt="Post 8"></div>
+      <div class="post" data-src="https://via.placeholder.com/800/E6E6FA/000?text=9"><img src="https://via.placeholder.com/400/E6E6FA/000?text=9" alt="Post 9"></div>
+    </section>
+  </div>
+
+  <!-- Modal para visualizar post -->
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="modal-card" role="document">
+      <div class="modal-left">
+        <img id="modalImg" src="" alt="Visualização do post">
+      </div>
+      <div class="modal-right">
+        <div class="modal-header">
+          <div style="display:flex;align-items:center;gap:10px">
+            <div style="width:40px;height:40px;border-radius:50%;overflow:hidden">
+              <img src="https://via.placeholder.com/100" alt="Avatar" style="width:100%;height:100%;object-fit:cover">
+            </div>
+            <div>
+              <div style="font-weight:700">nome_de_usuario</div>
+              <div style="font-size:13px;color:var(--muted)">Localização</div>
+            </div>
+          </div>
+          <div style="margin-left:auto">
+            <button class="close-btn" id="closeModal" aria-label="Fechar">✕</button>
+          </div>
+        </div>
+        <div class="modal-body">
+          <div class="comment">
+            <div class="c-avatar"><img src="https://via.placeholder.com/80" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+            <div class="c-text"><strong>user_a</strong> Excelente foto!</div>
+          </div>
+          <div class="comment">
+            <div class="c-avatar"><img src="https://via.placeholder.com/80/ccc" alt="" style="width:100%;height:100%;object-fit:cover;border-radius:50%"></div>
+            <div class="c-text"><strong>user_b</strong> 🔥🔥</div>
+          </div>
+          <div style="margin-top:12px;color:var(--muted);font-size:13px">Há 2 dias • 128 curtidas</div>
+          <div style="margin-top:12px">
+            <input id="commentInput" type="text" placeholder="Adicione um comentário..." style="width:100%;padding:10px;border:1px solid var(--border);border-radius:6px">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Follow button toggle (simples)
+    (function(){
+      const followBtn = document.getElementById('followBtn');
+      let following = false;
+      followBtn.addEventListener('click', () => {
+        following = !following;
+        followBtn.textContent = following ? 'Seguindo' : 'Seguir';
+        followBtn.classList.toggle('follow', !following); // cor azul apenas quando não segue
+        followBtn.style.background = following ? '#fff' : '';
+        followBtn.style.color = following ? '#111' : '';
+      });
+    })();
+
+    // Abrir modal ao clicar em post e navegar entre posts
+    (function(){
+      const posts = Array.from(document.querySelectorAll('.post'));
+      const modal = document.getElementById('modal');
+      const modalImg = document.getElementById('modalImg');
+      const closeBtn = document.getElementById('closeModal');
+      let currentIndex = 0;
+
+      function openModal(index){
+        const src = posts[index].dataset.src || posts[index].querySelector('img').src;
+        modalImg.src = src;
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+        currentIndex = index;
+        document.body.style.overflow = 'hidden';
+      }
+      function closeModal(){
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      posts.forEach((p,i) => {
+        p.addEventListener('click', () => openModal(i));
+      });
+
+      closeBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if(e.target === modal) closeModal();
+      });
+
+      // teclado: ← → fechar esc
+      document.addEventListener('keydown', (e)=>{
+        if(!modal.classList.contains('open')) return;
+        if(e.key === 'Escape') closeModal();
+        if(e.key === 'ArrowRight') {
+          openModal((currentIndex + 1) % posts.length);
+        }
+        if(e.key === 'ArrowLeft') {
+          openModal((currentIndex - 1 + posts.length) % posts.length);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
