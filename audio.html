@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>audios para o zap</title>
+</head>
+<body>
+    <h1>Venha escutar meu som</h1>
+     <audio src="habibi.mp3" controls autoplay loop muted>  </audio>
+
+    <h2>Agora vamos ver esse video.</h2>
+  
+    <video src="dançando.mp4" controls width="1280" height="720" poster="images.jpg" preload="metadata">
+        <track kind="captions" src="Hamoud.vtt" srclang="ar" label="arabe" default >
+        <track kind="subtitles" src="portugues.vtt" srclang="pt-BR" label="Português" >
+
+
+    </video>
+   
+      
+</body>
+</html>
+<!--s:
+ 1. Qual a diferença entre um codec de vídeo e um contêiner de vídeo? Dê um
+exemplo de cada.
+ 2. Crie uma página que contenha um vídeo. Este vídeo deve exibir uma imagem
+(poster) antes de carregar e ter suas dimensões (largura e altura) pré-definidas
+para evitar "layout shift".
+ 3. Adicione ao vídeo do exercício anterior um arquivo de captions em
+português (.vtt) para deficientes auditivos e uma trilha de subtitles em inglês. A
+trilha em português deve ser a padrão.
+ 4. Por que o atributo preload="none" em uma tag <audio> pode ser benéfico
+em uma página com muitos arquivos de áudio?-->
+
+<!--Respostas:
+1Codec de vídeo é um software ou algoritmo que comprime e descomprime dados de vídeo para reduzir o tamanho do arquivo ou permitir sua transmissão. Ele codifica o vídeo para armazenamento ou streaming e depois decodifica para reprodução.
+Exemplo: H.264, VP9, AV1.
+4-O atributo preload="none" instrui o navegador a não carregar o arquivo de áudio automaticamente ao carregar a página. Isso é benéfico em páginas com muitos arquivos de áudio porque:
+
+Reduz o consumo de banda e evita o carregamento desnecessário de vários arquivos grandes.
+
+Melhora o desempenho e o tempo de carregamento da página.
+
+Economiza recursos do dispositivo do usuário, especialmente em conexões lentas ou limitadas.
+
+O áudio só será carregado quando o usuário interagir, evitando desperdício.
+-->
