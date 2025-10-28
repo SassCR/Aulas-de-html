@@ -7,6 +7,12 @@
 </head>
 <body>
     <h1>Venha escutar meu som</h1>
+    <p> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae, sint beatae? Delectus iste enim ut repellat quis, nulla laborum, numquam animi, reiciendis adipisci vel nostrum voluptas? Vero fugiat architecto consectetur!
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate molestiae quam vel obcaecati odit? Labore laborum dolorem libero autem ipsum cupiditate architecto, nemo beatae accusantium itaque recusandae nostrum. Rerum, quisquam?
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit veniam sint quam natus eaque quo rem ipsam porro vitae! Dicta eligendi repudiandae doloremque tempore, quisquam porro exercitationem ducimus. Ducimus, quod?
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, aspernatur delectus iusto accusantium nemo cupiditate harum doloremque voluptate reiciendis enim possimus corrupti, repellendus ea architecto unde soluta, sed libero nobis!
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eveniet, provident, quas libero veniam commodi ad animi voluptas maxime cumque, veritatis tempore temporibus praesentium hic eos labore numquam omnis enim illum.
+    </p>
      <audio src="habibi.mp3" controls autoplay loop muted>  </audio>
 
     <h2>Agora vamos ver esse video.</h2>
@@ -14,8 +20,6 @@
     <video src="dançando.mp4" controls width="1280" height="720" poster="images.jpg" preload="metadata">
         <track kind="captions" src="Hamoud.vtt" srclang="ar" label="arabe" default >
         <track kind="subtitles" src="portugues.vtt" srclang="pt-BR" label="Português" >
-
-
     </video>
    
       
@@ -24,25 +28,49 @@
 <!--s:
  1. Qual a diferença entre um codec de vídeo e um contêiner de vídeo? Dê um
 exemplo de cada.
+
+
+
+
  2. Crie uma página que contenha um vídeo. Este vídeo deve exibir uma imagem
 (poster) antes de carregar e ter suas dimensões (largura e altura) pré-definidas
 para evitar "layout shift".
+
+
+
  3. Adicione ao vídeo do exercício anterior um arquivo de captions em
-português (.vtt) para deficientes auditivos e uma trilha de subtitles em inglês. A
-trilha em português deve ser a padrão.
+português (.vtt) para deficientes auditivos e uma trilha de subtitles em inglês. 
+
+ A trilha em português deve ser a padrão.
+
+
+
+
  4. Por que o atributo preload="none" em uma tag <audio> pode ser benéfico
 em uma página com muitos arquivos de áudio?-->
 
 <!--Respostas:
-1Codec de vídeo é um software ou algoritmo que comprime e descomprime dados de vídeo para reduzir o tamanho do arquivo ou permitir sua transmissão. Ele codifica o vídeo para armazenamento ou streaming e depois decodifica para reprodução.
+O Codec (Codificador/Decodificador): É o algoritmo responsável por comprimir e
+descomprimir os dados de áudio ou vídeo
 Exemplo: H.264, VP9, AV1.
+
+
+
+
+
 4-O atributo preload="none" instrui o navegador a não carregar o arquivo de áudio automaticamente ao carregar a página. Isso é benéfico em páginas com muitos arquivos de áudio porque:
 
+
 Reduz o consumo de banda e evita o carregamento desnecessário de vários arquivos grandes.
-
 Melhora o desempenho e o tempo de carregamento da página.
-
 Economiza recursos do dispositivo do usuário, especialmente em conexões lentas ou limitadas.
-
 O áudio só será carregado quando o usuário interagir, evitando desperdício.
+-->
+///////////////////////////////////////////////////////////////////////////////
+<!--9. Você está construindo um site para um cliente que precisa de um vídeo
+de fundo na página inicial que comece a tocar automaticamente. Quais
+atributos você usaria na tag <video> para ter a maior chance de que isso
+funcione nos navegadores modernos, e por quê?
+
+RESPOSTA:  AUTOPLAY LOOP E MUTED
 -->
