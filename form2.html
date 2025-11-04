@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oloquinho meu</title>
+</head>
+
+<body>
+    <f0rm>
+        <fieldset>
+            <legend>Tamanho:</legend>
+            <label><input type="radio" name="tamanho" value="M">Media</label>
+            <label><input type="radio" name="tamanho" value="G">Grande</label>
+        </fieldset>
+        <fieldset>
+            <legend>Adicionais:</legend>
+            <label|><input type="checkbox" name="add_queijo" value="sim">Queijo extra</label>
+                <label|><input type="checkbox" name="add_bacon" value="sim">Bacon</label><br>
+                    <label for="curso">Cursos:</label>
+                    <select id="Curso" name="Cursos_selecionados">
+                        <option value="si">Sistemas para Internet</option>
+                        <option value="ads">Analise de Sistemas</option>
+                        <option value="eng_soft">Engenharia de sofá</option>
+                    </select>
+                    <!--O debaixo é de um jeito agrupado separando por cargo ex:adm: curos relacionados a adm.
+                    auxiliar: cursos formados para se torna auxiliar.-->
+                    <!--O de cima é sem organizar por setores o debaixo é organizado.-->
+                    <label for="setor">Setor:</label>
+                    <select id="setor" name="setor_destino">
+                        <option value="" disabled selected>-- Escolha um setor --</option>
+                        <optgroup label="Tecnologia">
+                            <option value="suporte">Suporte Técnico</option>
+                            <option value="dev">Desenvolvimento</option>
+                        </optgroup>
+                        <optgroup label="Administrativo">
+                            <option value="rh">Recursos Humanos</option>
+                        </optgroup>
+                    </select>
+        </fieldset>
+    </f0rm>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        <label for="qtde">Quantidade(1 a 10):</label>
+        <input type="number" id="qtde" name="Quantidade" min="1" max="10" step="1" value="1">
+        <label for="valume">Volume:</label>
+        <input type="range" id="volume" name="volume_config" min="0" max="100" step="10">
+        <label for="nasc">Data de nascimento:</label>
+        <input type="date" id="nasc" name="data_nascimento">
+        <label for="Hora">Horario da reserva:</label>
+        <input type="time" id="Hora" name="Hora_reserva">
+        <label for="cor">Cor do tema:</label>
+        <input type="color" id="cor" name="cor_preferida" value="#0000FF">
+        
+    </form>
+    <!--Para enviar arquivos:-->
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+        <label for="doc">Anexar seu curriculo (PDF):</label>
+        <input type="file" id="doc" name="curriculo" accept="aplication/pdf">
+    </form>
+</body>
+</html>

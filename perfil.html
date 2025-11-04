@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+</head>
+
+<body>
+    <form>
+        <fieldset>
+            <legend>Meu Perfil</legend>
+            <label for="valume">Nivel de experiencia:</label>
+            <input type="range" id="volume" name="volume_config" min="0" max="100" step="10"><br>
+            <label for="Cor">Minha Cor é...:</label>
+            <input type="color" id="Cor" name="Cor_preferida" value="#0000FF"><br>
+            <label for="nasc">Qual é o dia do meu aniversário?</label>
+            <input type="date" id="nasc" name="data_nascimento"><br>
+            <label for="hora">Hora da soneca é:</label>
+            <input type="time" id="Hora" name="horario">
+        </fieldset>
+    </form>
+    <fieldset>
+        <legend>Gostos pessoais</legend>
+        <label for="Preferencia">Gosto+:</label>
+        <select id="Preferencia" name="Gosto+">
+            <option value="" disabled selected>-- Escolha uma opção --</option>
+            <optgroup label="Frutas">
+                <option value="Melancia">Melancia</option>
+                <option value="Banana">Banana</option>
+            </optgroup>
+            <optgroup label="Porcarias">
+                <option value="Pizza">Pizza</option>
+                <option value="Pastel">Pastel</option>
+                <option value="Peixe">Peixe</option>
+            </optgroup>
+        </select>
+    </fieldset>
+    <fieldset>
+        <legend>Preferencia de sistema operacional</legend>
+        <label for="Prefiro">Prefiro:</label>
+        <select id="Prefiro" name="qual_prefiro">
+            <option value="" disabled selected>--Escolha com sabedória</option>
+            <option value="Windos">Windows 10</option>
+            <option value="Mec">Mec</option>
+            <option value="Windows 7 pirata">Windows 7</option>
+        </select>
+        <form>
+         <button type="submit"><strong>Envia</strong></button>
+         <input type="text" name="dado" value="Valor inicial">
+         <input type="reset" value="Limpar">
+        <button type="button">Verificar (js)</button>
+        </form>
+    </fieldset>
+</body>
+
+</html>
