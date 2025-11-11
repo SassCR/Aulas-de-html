@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form>
+        <fieldset>
+            <legend>Faça seu pedido</legend>
+            <label>Escolha o sabor da pizza:<input type="radio" name="sabor">Queijo</label>
+            <label><input type="radio" name="sabor">Strognofos</label>
+            <label><input type="radio" name="sabor">Morango</label>
+            <br><br>
+            <label>Tamanhos: <input type="radio" name="Tamanho" value="G">Grande</label>
+            <label><input type="radio" name="Tamanho" value="M">Média</label>
+            <label><input type="radio" name="Tamanho" value="P">Pequena</label>
+        </fieldset>
+        <fieldset>
+            <legend>Adicionais:</legend>
+            <label><input type="checkbox" name="Bacon">Bacon</label><br>
+            <label><input type="checkbox" name="Queijo extra">Queijo extra</label><br>
+            <label><input type="checkbox" name="Cebola">Cebola</label><br>
+            <label><input type="checkbox" name="Azeitona">Azeitona</label>
+        </fieldset>
+        <fieldset>
+            <label for="bebidas">Bebidas:</label>
+            <select id="opções" name="bebidas_op">
+                <option value="" disabled selected>--Escolha a bebida---</option>
+                <optgroup label="Bebidas_normais">
+                    <option>Água</option>
+                    <option>Cachaça</option>
+                    <option>Coca-cola</option>
+                    <input type="number" id="quantidade" name="bebidas" min="1" max="5">
+                </optgroup>
+            </select>
+        </fieldset>
+    </form>
+</body>
+
+</html>
