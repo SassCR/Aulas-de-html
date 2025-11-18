@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Rene</title>
+    <link rel="stylesheet" href="renestyle.css">
+</head>
+
+<body id="corpo">
+    <header>
+        <nav id="menu">
+            <ul>
+                <li><b>Caso esteja com preguiça, vá direto para as categorias desejadas:</b></li>
+                <li><a href="#Sobre">sobre</a></li>
+                <li><a href="#Projetos">Projetos</a></li>
+                <li><a href="#Contatos">Contatos</a></li>
+                <li><a href="#Video">Video</a></li>
+            </ul>
+        </nav>
+        <h1>Sacy Careca</h1>
+        <h2>Desenvolvedor do Roblox</h2>
+    </header>
+    <section id="Sobre">
+        <h3>Sobre mim</h3>
+        <p>O Sacy Careca é uma variação pouco conhecida do lendário Saci-Pererê, surgida em histórias contadas nas
+            regiões mais afastadas do interior brasileiro. Diferente do famoso trickster de gorro vermelho, o Sacy
+            Careca perdeu o seu barrete mágico em uma disputa travessa com um grupo de caiporas e, desde então, circula
+            pelas matas totalmente sem cabelo — um detalhe que, segundo os mais velhos, aumentou ainda mais sua
+            velocidade e astúcia. Apesar da aparência inusitada, o Sacy Careca mantém o espírito brincalhão: aparece em
+            noites de vento forte, enrola pessoas em redemoinhos, troca objetos de lugar e deixa risadas ecoando na
+            mata. Contudo, dizem que ele também protege viajantes perdidos, guiando-os discretamente de volta ao caminho
+            certo.</p>
+        <figure>
+            <img
+                src="https://s2-ge.glbimg.com/FbifO2PM3jhUonnADB0utWxEbTM=/0x0:8192x5464/984x0/smart/filters:strip_icc()/i.s3.glbimg.com/v1/AUTH_bc8228b6673f488aa253bbcb03c80ec5/internal_photos/bs/2023/6/5/Nen728TlWcAAkQd32mMw/vct-2023-lock-in-groupsday9-125.jpg">
+        </figure>
+    </section>
+    <section id="Projetos">
+        <h3>Projetinhos</h3>
+        <ul>
+            <li><b>Nome:Pagina fake do instagram.</b>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus inventore repellendus architecto
+                    earum! Voluptates odit eligendi ipsam, sed rerum suscipit et aperiam nostrum distinctio repellat.
+                    Expedita voluptas optio eaque inventore! </p>
+                <a href="https://www.instagram.com/" target="_blank">Click aqui e veja.</a>
+            </li><br>
+
+            <li><b>Nome:Pagina fake do youtube</b>
+                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam recusandae veniam voluptates
+                    vero, nemo quo dignissimos vel maxime enim repellendus hic aliquam? Iste maiores voluptas, veritatis
+                    et tenetur dolores quam.</p>
+                <a href="https://www.youtube.com/shorts/zdWU_Pb7Cd4" target="_blank">Click aqui e veja.</a>
+            </li>
+        </ul>
+    </section>
+    <section id="Contato">
+        <form>
+            <fieldset>
+                <legend></legend>
+                <label for="Nome">Nome:</label>
+                <input type="text" id="NOME:" name="nome_completo" placeholder="nome..." minlength="3" maxlength="50"
+                    required>
+                <br>
+                <label>Email:</label>
+                <input type="email" id="Email" name="email" placeholder="email..." required>
+                <br>
+                <label for="Disponibilidade">Disponibilidade</label>
+                <label><input type="radio" name="Disponibilidade" value="M" required>Manhã</label>
+                <label><input type="radio" name="Disponibilidade" value="T">Tarde</label>
+                <label><input type="radio" name="Disponibilidade" value="N">Noite</label>
+                <br>
+                <label for="Cursos">Interesses:</label>
+                <select id="Opções" name="bebidas_op" required>
+                    <option value="" disabled selected>------Escolha seu curso-------</option>
+                    <optgroup label="Cursos">
+                        <option>Programador sem saber nada de programa</option>
+                        <option>Construtor de rodovia</option>
+                        <option>Pedreiro medio ao avançado</option>
+                    </optgroup>
+                </select>
+                <br>
+                <legend>Workshops</legend>
+                <label>Trilha Front-End<input type="checkbox" name="Fron-end" value="frente"></label>
+                <label>Trilha Back-End<input type="checkbox" name="back" value="costas"></label>
+                <label>Trilha DevOps<input type="checkbox" name="dev" value="ladinho"></label>
+                <br>
+                <label>Feedback</label>
+                <br>
+                <textarea id="msg" name="mensagem_feedback" rows="5" cols="40" placeholder="digite aqui seu feedback"
+                    required minlength="10"></textarea>
+                <button>Click aqui para enviar</button>
+            </fieldset>
+        </form>
+    </section>
+    <section id="video">
+        <video src="dançando.mp4" controls width="1280" height="720" poster="images.jpg" preload="metadata">
+        <track kind="chapters" src="Hamoud.vtt" srclang="ar" label="arabe" default>
+        </video>
+    </section>
+</body>
+
+</html>
+<!--
+Parte 1 – Estrutura da Página com HTML Semântico (1 ponto)
+Crie uma página chamada index.html com as seguintes seções:
+<header>
+ Use <h1> com o nome do profissional.
+ Use <h2> com o cargo ou especialidade (ex: "Desenvolvedor Front-End").
+ Inclua um menu de navegação com links internos para as seções da página (ex: Sobre,
+Projetos, Contato).
+<section id="sobre">
+ Use <h3> com o título "Sobre Mim".
+ Parágrafo com uma breve biografia.
+ Adicione uma imagem de perfil com <img> dentro de <figure>.
+<section id="projetos">
+ Use <h3> com o título "Projetos".
+ Liste 2 ou 3 projetos fictícios com:
+ Nome do projeto
+ Breve descrição
+ Link externo para visualização (use <a> com target="_blank")
+<section id="video">
+ Insira um vídeo institucional ou de apresentação (pode ser um link do YouTube incorporado
+com <iframe> ou <video> com controles).
+Parte 2 – Formulário com Validações HTML (1 ponto)
+Dentro da seção <section id="contato">, crie um formulário com os seguintes campos:
+ Nome completo (input type="text") com required, minlength="3" e maxlength="50".
+ E-mail (input type="email") com required.
+ Área de interesse (select) com pelo menos 3 opções e required.
+ Disponibilidade para contato (radio) com opções: Manhã, Tarde, Noite (obrigatório escolher
+uma).
+ Serviços de interesse (checkbox): Criação de site, Desenvolvimento de app, Consultoria.
+ Mensagem (textarea) com required.
+ Botão de envio (button type="submit").
+Parte 3 – Estilização com CSS Externo (1 ponto)
+Crie um arquivo chamado style.css e vincule-o ao HTML. Aplique os seguintes estilos:
+ Fonte legível e cor de fundo suave para o corpo da página.
+ Estilize o menu.
+ Estilização do formulário:
+ Campos com bordas arredondadas
+ Espaçamento entre os elementos
+ Botão com cor de destaque e efeito hover
+ Layout centralizado com largura máxima de 600px
+Entrega:
+Envie os arquivos seunome.html e seunome.css. Certifique-se de que todos os links, seções e
+estilos estejam funcionando corretamente-->

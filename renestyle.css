@@ -1,0 +1,13 @@
+#menu{
+border: 1px solid black;
+}
+
+#corpo{
+    font-size: 18px;
+    background-color: rgb(58, 57, 57);
+    color: white;
+}
+#contato{
+    border-radius: 10px;
+    
+}
